@@ -19,4 +19,15 @@ class TweetsController extends Controller
     {
         return view('tweets.create');
     }
+
+    public function store(Request $request)
+    {
+        // eval(\Psy\sh());
+        Tweet::create([
+            'text' =>  $request->text,
+            'image' => $request->image
+        ]);
+
+        return view('tweets.store');
+    }
 }

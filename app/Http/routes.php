@@ -13,10 +13,10 @@
 
 Route::get('/', 'TweetsController@index');
 
-Route::get('tweets/new', 'TweetsController@create');
+Route::get('/tweets/new', 'TweetsController@create');
 
-// Route::post('tweets', 'TweetsController@store');
-//
+Route::post('/tweets', 'TweetsController@store');
+
 // Route::get('users/{user_id}', 'UsersController@show');
 //
 // Route::delete('tweets/{tweet_id}', 'TweetsController@destory');
