@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TweetsController@index');
+//
+// Route::get('tweets/new', 'TweetsController@store');
+//
+// Route::post('tweets', 'TweetsController@create');
+//
+// Route::get('users/{user_id}', 'UsersController@show');
+//
+// Route::delete('tweets/{tweet_id}', 'TweetsController@destory');
+//
+// Route::get('tweets/{tweet_id}/{edit}', 'TweetsController@edit');
+//
+// Route::pathc('tweets/{tweet_id}', 'TweetsController@update');
