@@ -24,3 +24,7 @@ Route::post('/tweets', 'TweetsController@store');
 // Route::get('tweets/{tweet_id}/{edit}', 'TweetsController@edit');
 //
 // Route::pathc('tweets/{tweet_id}', 'TweetsController@update');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
