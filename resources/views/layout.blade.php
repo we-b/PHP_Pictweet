@@ -25,25 +25,25 @@
 		<header class="header">
 			<div class="header__bar row">
 				<h1 class="grid-6"><a href="/">PicTweet</a></h1>
-				<?php if (true) { ?>
+				@if (Auth::guest())
+					<div class="grid-6">
+						<a href="/login" class="post">ログイン</a>
+						<a href="/register" class="post">新規登録</a>
+					</div>
+				@else
 					<div class="user_nav grid-6">
 						<span>
 							User Name
 							<ul class="user__info">
 								<li>
 									<a href="#">マイページ</a>
-									<a href="#" method="delete">ログアウト</a>
+									<a href="/logout" method="delete">ログアウト</a>
 								</li>
 							</ul>
 						</span>
 						<a class="post" href="/tweets/new">投稿する</a>
 					</div>
-				<?php } else { ?>
-					<div class="grid-6">
-						<a href="#" class="post">ログイン</a>
-						<a href="#" class="post">新規登録</a>
-					</div>
-				<?php } ?>
+				@endif
 			</div>
 		</header>
 
