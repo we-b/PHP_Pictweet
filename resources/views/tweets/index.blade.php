@@ -23,7 +23,7 @@
 
 				<span class="name">
 					<a href="#">
-  						<span>投稿者</span>User Name
+  						<span>投稿者</span>{{Auth::user()->name}}
 					</a>
 				</span>
 			</div>

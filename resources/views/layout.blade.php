@@ -33,7 +33,7 @@
 				@else
 					<div class="user_nav grid-6">
 						<span>
-							User Name
+							{{Auth::user()->name}}
 							<ul class="user__info">
 								<li>
 									<a href="#">マイページ</a>
