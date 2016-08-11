@@ -3,7 +3,7 @@
 @section('content')
 	<div class="contents row">
 		<div class="container">
-			{!! Form::open(['url' => '/tweets']) !! }}
+			{!! Form::open(['url' => '/tweets']) !!}
 				<h3>
   					投稿する
 				</h3>
