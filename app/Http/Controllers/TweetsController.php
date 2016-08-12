@@ -30,4 +30,10 @@ class TweetsController extends Controller
 
         return view('tweets.store');
     }
+
+    public function destroy($id)
+    {
+        Tweet::destroy($id);
+        return view('tweets.destroy');
+    }
 }

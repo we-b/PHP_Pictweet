@@ -7,24 +7,14 @@
 				<div class="more">
 					<span><img 'arrow_top.png'></span>
 					<ul class="more_list">
-  						<li>
-							<a href="#">詳細</a>
-  						</li>
-
-							<li>
-								<a href="#">編集</a>
-					 		</li>
-							<li>
-								<a href="#">削除</a>
-							</li>
-
+						<li><a href="#">詳細</a></li>
+						<li><a href="#">編集</a></li>
+						<li><a href="/tweets/{{$tweet->id}}">削除</a></li>
 					</ul>
 				</div>
 
 				<span class="name">
-					<a href="#">
-  						<span>投稿者</span>{{Auth::user()->name}}
-					</a>
+					<a href="#"><span>投稿者</span>{{Auth::user()->name}}</a>
 				</span>
 			</div>
 		@empty
