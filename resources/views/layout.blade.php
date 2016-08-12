@@ -32,7 +32,7 @@
 							<ul class="user__info">
 								<li>
 									<a href="#">マイページ</a>
-									<a href="/logout" method="delete">ログアウト</a>
+									<a href="/logout" method="DELETE">ログアウト</a>
 								</li>
 							</ul>
 						</span>
