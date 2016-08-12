@@ -8,7 +8,7 @@
 					<span><img 'arrow_top.png'></span>
 					<ul class="more_list">
 						<li><a href="#">詳細</a></li>
-						<li><a href="#">編集</a></li>
+						<li><a href="tweets/{{$tweet->id}}/edit">編集</a></li>
 						<li><a href="/tweets/{{$tweet->id}}">削除</a></li>
 					</ul>
 				</div>

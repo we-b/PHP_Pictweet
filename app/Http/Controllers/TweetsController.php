@@ -22,13 +22,28 @@ class TweetsController extends Controller
 
     public function store(Request $request)
     {
-        // eval(\Psy\sh());
         Tweet::create([
             'text' =>  $request->text,
             'image' => $request->image
         ]);
 
         return view('tweets.store');
+    }
+
+    public function edit($id)
+    {
+        $tweet = Tweet::find($id);
+        return view('tweets.edit')->with('tweet', $tweet);
+    }
+
+    public function update($id, Request $request)
+    {
+        Tweet::find($id)->update([
+            'text' => $request->text,
+            'image' => $request->image
+        ]);
+
+        return view('tweets.update');
     }
 
     public function destroy($id)

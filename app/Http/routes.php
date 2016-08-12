@@ -20,9 +20,9 @@ Route::get('/tweets/new', 'TweetsController@create');
 Route::post('/tweets', 'TweetsController@store');
 
 // Route::get('users/{user_id}', 'UsersController@show');
-//
-// Route::get('tweets/{tweet_id}/{edit}', 'TweetsController@edit');
-//
-// Route::pathc('tweets/{tweet_id}', 'TweetsController@update');
+
+Route::get('tweets/{tweet_id}/edit', 'TweetsController@edit');
+
+Route::put('tweets/{tweet_id}', 'TweetsController@update');
 
 Route::get('/tweets/{id}', 'TweetsController@destroy');
