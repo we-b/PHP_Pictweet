@@ -26,7 +26,8 @@ class TweetsController extends Controller
     {
         Tweet::create([
             'text' =>  $request->text,
-            'image' => $request->image
+            'image' => $request->image,
+            'user_id' => Auth::user()->id
         ]);
 
         return view('tweets.store');
