@@ -31,7 +31,7 @@
 							{{Auth::user()->name}}
 							<ul class="user__info">
 								<li>
-									<a href="#">マイページ</a>
+									<a href="/users/{{Auth::user()->id}}">マイページ</a>
 									<a href="/logout" method="DELETE">ログアウト</a>
 								</li>
 							</ul>
