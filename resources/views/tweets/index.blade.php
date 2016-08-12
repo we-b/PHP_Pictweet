@@ -13,6 +13,7 @@
 					</ul>
 				</div>
 
+				<p>{{$tweet->text}}</p>
 				<span class="name">
 					<a href="#"><span>投稿者</span>{{Auth::user()->name}}</a>
 				</span>
