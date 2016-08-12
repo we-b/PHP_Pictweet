@@ -25,4 +25,4 @@ Route::put('tweets/{tweet_id}', 'TweetsController@update');
 
 Route::get('/tweets/{id}', 'TweetsController@destroy');
 
-Route::get('/user/{id}', 'UsersController@show');
+Route::get('/users/{id}', 'UsersController@show');
