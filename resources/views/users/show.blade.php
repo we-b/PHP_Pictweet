@@ -21,5 +21,6 @@
 			</div>
 		@empty
 	    @endforelse
+		{{ $tweets->render() }}
 	</div>
 @endsection

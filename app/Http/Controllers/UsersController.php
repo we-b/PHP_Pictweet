@@ -14,6 +14,7 @@ class UsersController extends Controller
     {
         $user = Auth::user();
         $tweets = Tweet::where('user_id', $user->id)->get();
+        $tweets = Tweet::orderBy('created_at', 'DESC')->paginate(5);
         $tweet = Tweet::find(2);
         return view('users.show', compact('user', 'tweets', 'tweet'));
     }
