@@ -3,7 +3,7 @@
 	<head>
 		<title>Pictweet</title>
 		<meta charset="utf-8">
-		<link href="/css/a.css" href="/css/style.css" rel="stylesheet" type="text/css">
+		<link href="/css/a.css" rel="stylesheet" type="text/css">
 
 		<script type="text/javascript">
 			WebFontConfig = {
