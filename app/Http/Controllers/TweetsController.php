@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Tweet;
 use Auth;
+use App\Comment;
+use Input;
 
 
 class TweetsController extends Controller
@@ -15,6 +17,13 @@ class TweetsController extends Controller
     {
         $tweets = Tweet::all();
         return view('tweets.index')->with('tweets', $tweets);
+    }
+
+    public function show($id)
+    {
+        $tweet = Tweet::find($id);
+        $comments = Comment::all();
+        return view('tweets.show', compact('tweet', 'comments'));
     }
 
     public function create()
