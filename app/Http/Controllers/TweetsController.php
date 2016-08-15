@@ -21,7 +21,7 @@ class TweetsController extends Controller
 
     public function show($id)
     {
-        $tweet = Tweet::find($id);
+        $tweet = Tweet::findOrFail($id);
         $comments = Comment::all();
         return view('tweets.show', compact('tweet', 'comments'));
     }
@@ -44,13 +44,13 @@ class TweetsController extends Controller
 
     public function edit($id)
     {
-        $tweet = Tweet::find($id);
+        $tweet = Tweet::findOrFail($id);
         return view('tweets.edit')->with('tweet', $tweet);
     }
 
     public function update($id, Request $request)
     {
-        Tweet::find($id)->update([
+        Tweet::findOrFail($id)->update([
             'text' => $request->text,
             'image' => $request->image
         ]);
