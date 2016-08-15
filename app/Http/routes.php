@@ -19,10 +19,14 @@ Route::get('/tweets/new', 'TweetsController@create');
 
 Route::post('/tweets', 'TweetsController@store');
 
+Route::get('/tweets/{id}', 'TweetsController@show');
+
 Route::get('/tweets/{tweet_id}/edit', 'TweetsController@edit');
 
 Route::put('/tweets/{tweet_id}', 'TweetsController@update');
 
-Route::get('/tweets/{id}', 'TweetsController@destroy');
+Route::get('/tweets/{id}/delete', 'TweetsController@destroy');
 
 Route::get('/users/{id}', 'UsersController@show');
+
+Route::post('/tweets/{id}/comments', 'CommentsController@store');
