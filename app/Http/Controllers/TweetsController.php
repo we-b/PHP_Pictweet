@@ -7,6 +7,11 @@ use App\Tweet;
 
 class TweetsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index']);
+    }
+
     public function index()
     {
         $tweets = Tweet::orderBy('created_at', 'DESC')->paginate(5);
