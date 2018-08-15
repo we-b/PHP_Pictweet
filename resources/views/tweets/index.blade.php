@@ -8,5 +8,7 @@
       <span class="name">{{ $tweet->name }}</span>
     </div>
   @endforeach
+
+  {{ $tweets->links() }}
 </div>
 @endsection
