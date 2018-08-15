@@ -26,6 +26,6 @@ class TweetsController extends Controller
                 'image' => $request->image,
                 'text' => $request->text,
             )
-        )
+        );
     }
 }
