@@ -27,5 +27,7 @@ class TweetsController extends Controller
                 'text' => $request->text,
             )
         );
+
+        return view('tweets.store');
     }
 }
