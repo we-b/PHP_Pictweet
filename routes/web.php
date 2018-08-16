@@ -14,4 +14,5 @@
 Auth::routes();
 Route::get('/', 'TweetsController@index');
 Route::resource('tweets', 'TweetsController');
+Route::resource('tweets.comments', 'CommentsController', ['only' => 'store']);
 Route::resource('users', 'UsersController', ['only' => 'show']);
