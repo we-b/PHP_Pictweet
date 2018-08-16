@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tweet;
+use Auth;
 
 class TweetsController extends Controller
 {
@@ -30,6 +31,7 @@ class TweetsController extends Controller
                 'name' => $request->name,
                 'image' => $request->image,
                 'text' => $request->text,
+                'user_id' => Auth::user()->id,
             )
         );
 
