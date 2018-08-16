@@ -8,10 +8,10 @@ use App\Tweet;
 
 class UsersController extends Controller
 {
-    public function show()
+    public function show($id)
     {
-        $name = Auth::user()->name;
-        $tweets = Auth::user()->tweets()->orderBy('created_at', 'DESC')->paginate(5);
+        $name = User::find($id)->name;
+        $tweets = User::find($id)->tweets()->orderBy('created_at', 'DESC')->paginate(5);
 
         return view('users.show')->with(['name' => $name, 'tweets' => $tweets]);
     }

@@ -20,8 +20,26 @@
 
     <p>{{ $tweet->text }}</p>
     <span class="name">
-      <a href="#"><span>投稿者</span>{{Auth::user()->name}}</a>
+      <a href="#"><span>投稿者</span>{{ Auth::user()->name }}</a>
     </span>
+  </div>
+
+  <div class="container">
+    @if (Auth::check())
+      {{ Form::open(['url' => "/tweets/{$tweet->id}/comments"]) }}
+        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+        <input type="submit" value="SENT">
+      {{ Form::close() }}
+    @endif
+    <div class="comments">
+      <h4><コメント一覧></h4>
+      @foreach($comments as $comment)
+        <p>
+          <strong><a href="/users/{{ $comment->user_id }}">{{ $comment->user->name }}</a>:</strong>
+          {{ $comment->text }}
+        </p>
+      @endforeach
+    </div>
   </div>
 </div>
 @endsection
