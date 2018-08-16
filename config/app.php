@@ -168,7 +168,6 @@ return [
          * Package Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
-        // Barryvdh\Debugbar\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -227,7 +226,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        // 'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
