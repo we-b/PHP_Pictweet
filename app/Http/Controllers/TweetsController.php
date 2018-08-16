@@ -26,15 +26,21 @@ class TweetsController extends Controller
 
     public function store(Request $request)
     {
-        Tweet::create(
-            array(
-                'name' => $request->name,
+        Tweet::create([
                 'image' => $request->image,
                 'text' => $request->text,
                 'user_id' => Auth::user()->id,
-            )
-        );
+            ]);
 
         return view('tweets.store');
+    }
+
+    public function destroy($id)
+    {
+        if (Tweet::find($id)->user_id == Auth::user()->id) {
+            Tweet::destroy($id);
+        }
+
+        return view('tweets.destroy');
     }
 }
