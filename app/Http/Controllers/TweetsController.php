@@ -15,7 +15,7 @@ class TweetsController extends Controller
 
     public function index()
     {
-        $tweets = Tweet::orderBy('created_at', 'DESC')->paginate(5);
+        $tweets = Tweet::with('user')->orderBy('created_at', 'DESC')->paginate(5);
         return view('tweets.index')->with('tweets', $tweets);
     }
 

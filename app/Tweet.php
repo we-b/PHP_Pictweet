@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tweet extends Model
 {
-    protected $fillable = ['name', 'image', 'text', 'user_id'];
+    protected $guarded = ['id'];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
