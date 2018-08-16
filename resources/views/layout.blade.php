@@ -11,14 +11,20 @@
         <h1 class="grid-6"><a href="/">PicTweet</a></h1>
         @if (Auth::check())
           <div class="user_nav grid-6">
-            <a href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">
-                ログアウト
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-            </form>
+            <span>
+            {{ Auth::user()->name }}
+              <ul class="user__info">
+                <li>
+                  <a href="/users/{{ Auth::user()->id }}">マイページ</a>
+                  <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      ログアウト
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                  </form>
+                </li>
+              </ul>
+            </span>
             <a href="/tweets/create" class="post">投稿する</a>
           </div>
         @else
