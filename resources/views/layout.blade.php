@@ -11,8 +11,15 @@
         <h1 class="grid-6"><a href="/">PicTweet</a></h1>
         @if (Auth::check())
           <div class="user_nav grid-6">
-            <a href="/logout">ログアウト</a>
-            <a class="post" href="/tweets/create">投稿する</a>
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+                ログアウト
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+            <a href="/tweets/create" class="post">投稿する</a>
           </div>
         @else
           <div class="grid-6">
