@@ -13,9 +13,17 @@ class AddUserIdTweetsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::table('tweets', function (Blueprint $table) {
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -25,8 +33,12 @@ class AddUserIdTweetsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::table('tweets', function (Blueprint $table) {
-            //
+            $table->dropForeign(['user_id']);
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 }
