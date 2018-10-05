@@ -27,10 +27,10 @@ class TweetsController extends Controller
     public function store(Request $request)
     {
         Tweet::create([
-                'image' => $request->image,
-                'text' => $request->text,
-                'user_id' => Auth::user()->id,
-            ]);
+            'image' => $request->image,
+            'text' => $request->text,
+            'user_id' => Auth::user()->id,
+        ]);
 
         return view('tweets.store');
     }
