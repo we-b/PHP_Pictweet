@@ -27,12 +27,20 @@ class TweetsController extends Controller
     public function store(Request $request)
     {
         Tweet::create([
-                'image' => $request->image,
-                'text' => $request->text,
-                'user_id' => Auth::user()->id,
-            ]);
+            'image' => $request->image,
+            'text' => $request->text,
+            'user_id' => Auth::user()->id,
+        ]);
 
         return view('tweets.store');
+    }
+
+    public function show($id)
+    {
+        $tweet = Tweet::with('comments')->find($id);
+        $comments = $tweet->comments()->get();
+
+        return view('tweets.show')->with(['tweet' => $tweet, 'comments' => $comments]);
     }
 
     public function edit($id)

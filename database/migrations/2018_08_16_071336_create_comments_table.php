@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserIdTweetsTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,23 @@ class AddUserIdTweetsTable extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
-
-        Schema::table('tweets', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
-
             $table->foreign('user_id')
                   ->references('id')->on('users')
                   ->onDelete('cascade');
-        });
 
-        Schema::enableForeignKeyConstraints();
+            $table->integer('tweet_id')->unsigned();
+            $table->foreign('tweet_id')
+                  ->references('id')->on('tweets')
+                  ->onDelete('cascade');
+
+            $table->text('text');
+            $table->timestamps();
+
+
+        });
     }
 
     /**
@@ -33,12 +39,6 @@ class AddUserIdTweetsTable extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
-
-        Schema::table('tweets', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
-
-        Schema::enableForeignKeyConstraints();
+        Schema::dropIfExists('comments');
     }
 }

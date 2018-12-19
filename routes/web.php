@@ -13,9 +13,6 @@
 
 Auth::routes();
 Route::get('/', 'TweetsController@index');
-Route::get('tweets/create', 'TweetsController@create');
-Route::post('tweets', 'TweetsController@store');
-Route::get('tweets/{tweets_id}/edit', 'TweetsController@edit');
-Route::patch('tweets/{tweets_id}', 'TweetsController@update');
-Route::get('tweets/{id}/delete', 'TweetsController@destroy');
-Route::get('users/{id}', 'UsersController@show');
+Route::resource('tweets', 'TweetsController');
+Route::resource('tweets.comments', 'CommentsController', ['only' => 'store']);
+Route::resource('users', 'UsersController', ['only' => 'show']);
